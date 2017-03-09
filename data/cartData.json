@@ -1,0 +1,49 @@
+{
+	"status":1,
+	"result":{
+		"list":[
+		{
+			"productId":"0000000001",
+			"productName":"Casio/卡西欧 EX-TR350",
+			"productPrice":"5999",
+			"productQuentity":1,
+			"productImage":"img/1.jpg"
+		},{
+			"productId":"0000000002",
+			"productName":"Canon/佳能 PowerShot SX50 HS",
+			"productPrice":"3888",
+			"productQuentity":1,
+			"productImage":"img/2.jpg"
+		},{
+			"productId":"0000000003",
+			"productName":"Sony/索尼 DSC-WX300",
+			"productPrice":"1428",
+			"productQuentity":1,
+			"productImage":"img/3.jpg"
+		},{
+			"productId":"0000000004",
+			"productName":"Fujifilm/富士 instax mini 25",
+			"productPrice":"640",
+			"productQuentity":1,
+			"productImage":"img/4.jpg"
+		},{
+			"productId":"0000000005",
+			"productName":"Fujifilm/富士cheky instax mini90套装含拍立得相纸复古立拍相机 ",
+			"productPrice":"1288",
+			"productQuentity":1,
+			"productImage":"img/5.jpg"
+		},{
+			"productId":"0000000006",
+			"productName":"Fujifilm/富士 X-A1套机(16-50mm) XA1 微单 富士数码相机 ",
+			"productPrice":"2999",
+			"productQuentity":1,
+			"productImage":"img/6.jpg"
+		},{
+			"productId":"0000000007",
+			"productName":"Canon/佳能 FS37 数码摄像机 家用DV 婚庆现场 自带16G内存二手 ",
+			"productPrice":"1500",
+			"productQuentity":1,
+			"productImage":"img/7.jpg"
+		}]
+	}
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>地址确认</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="addressList">
+				<div class="title">
+					<span class="line"></span>
+					<h2>配送地址</h2>
+				</div>
+				<ul class="clearFix">
+					<li v-for="(item,index) in addressList" :class="{active:index == currIndex}" @click="currIndex = index">
+						<dl>
+							<dt>{{item.username}}</dt>
+							<dd class="address">{{item.streetName}}</dd>
+							<dd class="tel">{{item.tel}}</dd>
+						</dl>
+						<div class="isDefault">
+							<a href="javascript:;" v-if="item.isDefault">默认地址</a>
+							<a href="javascript:;" v-if="!item.isDefault" @click="setDefault(item)">设为默认</a>
+						</div>
+						<div class="operate setting" @click="editAddress(item)"></div>
+						<div class="operate delete" @click="delAddress(item)"></div>
+					</li>
+					<li class="newAddress" @click="editAddress()"></li>
+				</ul>
+				<!--<a href="javascript:;" class="more">more</a>-->
+			</div>
+			<div class="shippingWay">
+				<div class="title">
+					<span class="line"></span>
+					<h2>配送方式</h2>
+				</div>
+				<div class="btn-wrap">
+					<button :class="{active:shippingWay == 1}" @click="shippingWay=1"><span>标准配送</span><span></span>Free</button>
+					<button :class="{active:shippingWay == 2}" @click="shippingWay=2"><span>高级配送</span><span></span>180</button>
+				</div>
+			</div>
+			<div class="btn-next">
+				<div class="title">
+					<span class="line"></span>
+				</div>
+				<button class="next">下一步</button>
+			</div>
+			
+			<div class="addressEdit" :class="{show:editFlag}">
+				<div class="inner">
+					<form action="#">
+						<div class="form-group">
+							<label for="username" class="control-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+							<input type="text" id="username" class="form-control" placeholder="您的姓名" v-model="currAddress.username"/>
+						</div>
+						<div class="form-group">
+							<label for="tel" class="control-label">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话</label>
+							<input type="text" id="tel" class="form-control" placeholder="11位手机号码" v-model="currAddress.tel"/>
+						</div>
+						<div class="form-group">
+							<label for="streetname" class="control-label">详细地址</label>
+							<input type="text" id="streetname" class="form-control" v-model="currAddress.streetName"/>
+						</div>
+						<div class="btn-group">
+							<button class="save" @click="saveAddress">保存</button>
+							<button class="cancel" @click="editFlag=false">取消</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue-resource.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/address.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

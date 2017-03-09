@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>购物车</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<div id="app">
+			<div class="goods">
+				<div class="title">
+					<span class="line"></span>
+					<h2>商品列表</h2>
+				</div>
+				<div class="goodsList">
+					<ul class="clearFix">
+						<li v-for="item in products">
+							<div class="picture">
+								<img :src="item.productImage" align="middle"/>
+							</div>
+							<div class="price">￥{{item.productPrice}}</div>
+							<p>{{item.productName}}</p>
+							<div class="addCart">
+								<button @click="addCart(item)">加入购物车</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="cart">
+				<div class="title">
+					<span class="line"></span>
+					<h2>购物车</h2>
+				</div>
+				<div class="cartList" :class="{show:!isEmpty}">
+			        <ul class="cartHead clearFix">
+			            <li class="cartList-item1"><label><input class="check-all check" type="checkbox" @click="selectAll()" :checked="checkAllFlag">&nbsp;全选</label></li>
+			            <li class="cartList-item2">商品</li>
+			            <li class="cartList-item3">单价</li>
+			            <li class="cartList-item4">数量</li>
+			            <li class="cartList-item5">小计</li>
+			            <li class="cartList-item6">操作</li>
+			        </ul>
+			        <ul class="cartContent clearFix" v-for="item in productList">
+			            <li class="cartList-item1 checkbox">
+			            	<input class="check-one check" type="checkbox" @click="selectProduct(item)" v-bind:checked="item.check"/>
+			            </li>
+			            <li class="cartList-item2 goods">
+			            	<img :src="item.productImage" alt=""/><span>{{item.productName}}</span>
+			            </li>
+			            <li class="cartList-item3 price">{{item.productPrice | formatMoney}}</li>
+			            <li class="cartList-item4 count">
+			            	<a href="javascript:;" class="reduce" @click="changeMoney(item,-1)">-</a><input class="count-input" type="text" value="1" v-model="item.productQuentity"/><a href="javascript:;" class="add" @click="changeMoney(item,1)">+</a>
+			            </li>
+			            <li class="cartList-item5 subtotal">{{item.productPrice*item.productQuentity | formatMoney}}</li>
+			            <li class="cartList-item6 operation">
+			            	<a href="javascript:;" class="delete" @click="delComfirm(item)">删除</span>
+			            </li>
+			        </ul>
+				</div>
+				<div class="msg" id="msg" :class="{show:delFlag}">
+					<div class="inner">
+						<div class="top">
+							<a href="javascript:;" @click="delFlag = false">关闭</a>
+						</div>
+						<div class="content">
+							<div class="comfirm-tips">
+								<p>你确认删除此订单信息吗？</p>
+							</div>
+							<div class="btn-wrap">
+								<button class="yes" @click="delProduct()">YES</button>
+								<button class="no active" @click="delFlag = false">NO</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cartFoot" id="foot" :class="{show:!isEmpty}">
+				    <label class="select-all"><input type="checkbox" class="check-all check" @click="selectAll()" :checked="checkAllFlag"/>&nbsp;全选</label>
+				    <div class="fr closing"><a href='address.html'>结&nbsp;算</a></div>
+				    <div class="fr total">合计：<span id="priceTotal">{{totalMoney | formatMoney}}</span></div>
+				</div>
+				<div class="empty" :class="{show:isEmpty}">
+					<h2>您的购物车还是空的，赶紧行动吧！</h2>
+				</div>
+			</div>
+		</div>
+		<script src="js/vue.min.js"></script>
+		<script src="js/vue-resource.js"></script>
+		<script src="js/cart.js"></script>
+	</body>
+</html>

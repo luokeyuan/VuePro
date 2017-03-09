@@ -1,0 +1,47 @@
+{
+	"status":0,
+	"result":[{
+		"addressId":"100001",
+		"username":"Jack Thomas",
+		"streetName":"广州市天河区五山花园",
+		"postCode":"100001",
+		"tel":"13894990222",
+		"isDefault":true
+	},{
+		"addressId":"100002",
+		"username":"Jack Thomas",
+		"streetName":"广州市天河区五山花园",
+		"postCode":"100001",
+		"tel":"13894990222",
+		"isDefault":false
+	},{
+		"addressId":"100003",
+		"username":"Jack Thomas",
+		"streetName":"广州市天河区五山花园",
+		"postCode":"100001",
+		"tel":"13894990222",
+		"isDefault":false
+	},{
+		"addressId":"100004",
+		"username":"Jack Thomas",
+		"streetName":"广州市天河区五山花园",
+		"postCode":"100001",
+		"tel":"13894990222",
+		"isDefault":false
+	},{
+		"addressId":"100005",
+		"username":"Jack Thomas",
+		"streetName":"广州市天河区五山花园",
+		"postCode":"100001",
+		"tel":"13894990222",
+		"isDefault":false
+	},{
+		"addressId":"100006",
+		"username":"Jack Thomas",
+		"streetName":"广州市天河区五山花园",
+		"postCode":"100001",
+		"tel":"13894990222",
+		"isDefault":false
+	}
+	]
+}
