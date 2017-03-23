@@ -3,7 +3,6 @@
 new Vue({
 	el:'#app',
 	data:{
-		totalMoney:0,
 		products:[],
 		productList:[],
 		checkAllFlag:false,
@@ -57,7 +56,6 @@ new Vue({
 					product.productQuentity=1
 				}
 			}
-			this.calcMoney();
 		},
 		selectProduct:function(item){
 			if(typeof item.check== 'undefined'){
@@ -65,7 +63,6 @@ new Vue({
 			}else{
 				item.check = !item.check;
 			}
-			this.calcMoney();
 			this.checkAll();
 		},
 		selectAll:function(){
@@ -78,7 +75,6 @@ new Vue({
 					item.check = _this.checkAllFlag;
 				}
 			});
-			this.calcMoney();
 		},
 		checkAll:function(){
 			var _this = this;
@@ -93,15 +89,6 @@ new Vue({
 			}else{
 				this.checkAllFlag = false;
 			}
-		},
-		calcMoney:function(item){
-			var _this = this;
-			this.totalMoney = 0;
-			this.productList.forEach(function(item,index){
-				if(item.check){
-					_this.totalMoney += item.productPrice * item.productQuentity;
-				}
-			})
 		},
 		delComfirm:function(item){
 			this.delFlag = true;
@@ -119,6 +106,17 @@ new Vue({
 			}else{
 				this.isEmpty = false;
 			}
+		}
+	},
+	computed:{
+		totalMoney:function(){
+			var totalMoney = 0;
+			this.productList.forEach(function(item,index){
+				if(item.check){
+					totalMoney += item.productPrice * item.productQuentity;
+				}
+			});
+			return totalMoney;
 		}
 	}
 })
